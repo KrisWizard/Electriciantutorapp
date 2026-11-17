@@ -28,7 +28,7 @@ export function Regning() {
     if (!oppgave || resultat !== null) return
     const tall = parseFloat(input.replace(',', '.').replace(/\s/g, ''))
     if (Number.isNaN(tall)) return
-    const ok = erRiktig(tall, oppgave.svar)
+    const ok = erRiktig(tall, oppgave.svar, oppgave.eksakt)
     setResultat(ok)
     setScore((s) => ({ riktig: s.riktig + (ok ? 1 : 0), totalt: s.totalt + 1 }))
     update((st) => registrerSvar(st, 'regning', ok))
@@ -38,7 +38,7 @@ export function Regning() {
     return (
       <section>
         <h1>Regneøving</h1>
-        <p className="muted">Nye tall hver gang, så du må faktisk regne. Svar innenfor ±2 % godtas.</p>
+        <p className="muted">Nye tall hver gang, så du må faktisk regne. Svar innenfor ±2 % godtas (subnett må være eksakt).</p>
         <button className="btn btn-primary full" onClick={() => start('blandet')}>
           Blandede oppgaver
         </button>

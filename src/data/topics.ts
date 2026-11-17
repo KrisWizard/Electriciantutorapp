@@ -8,6 +8,7 @@ export const TOPICS: Topic[] = [
   { id: 'sikkerhet', navn: 'Sikkerhet (FSE)', ikon: '🦺' },
   { id: 'maling', navn: 'Måling og kontroll', ikon: '📏' },
   { id: 'materiell', navn: 'Kabler og materiell', ikon: '🔌' },
+  { id: 'ekom', navn: 'Ekom og nettverk', ikon: '📡' },
 ]
 
 export const topicById = Object.fromEntries(TOPICS.map((t) => [t.id, t])) as Record<

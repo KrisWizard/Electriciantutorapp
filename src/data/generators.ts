@@ -166,10 +166,47 @@ export const GENERATORS: Generator[] = [
       }
     },
   },
+  {
+    id: 'fiberbudsjett',
+    navn: 'Ekom: fiberdemping',
+    lag: () => {
+      const km = pick([0.5, 1, 2, 3, 5, 8])
+      const perKm = pick([0.35, 0.4, 0.5])
+      const kontakter = pick([2, 4])
+      const kDemp = pick([0.5, 0.75])
+      const skjot = pick([0, 1, 2, 3])
+      const sDemp = 0.1
+      const tot = km * perKm + kontakter * kDemp + skjot * sDemp
+      return {
+        tittel: 'Fiberdemping (singlemodus)',
+        tekst: `En fiberstrekning er ${fmt(km)} km med ${fmt(perKm)} dB/km. Den har ${kontakter} kontakter à ${fmt(kDemp)} dB og ${skjot} skjøter à ${fmt(sDemp)} dB. Hva er total demping?`,
+        svar: tot,
+        enhet: 'dB',
+        losning: `Fiber: ${fmt(km)} · ${fmt(perKm)} = ${fmt(km * perKm)} dB\nKontakter: ${kontakter} · ${fmt(kDemp)} = ${fmt(kontakter * kDemp)} dB\nSkjøter: ${skjot} · ${fmt(sDemp)} = ${fmt(skjot * sDemp)} dB\nTotalt = ${fmt(tot)} dB`,
+      }
+    },
+  },
+  {
+    id: 'subnett',
+    navn: 'Ekom: vertsadresser i subnett',
+    lag: () => {
+      const n = pick([24, 25, 26, 27, 28, 29, 30, 23, 22])
+      const verter = 2 ** (32 - n) - 2
+      return {
+        tittel: 'Subnett (IPv4)',
+        tekst: `Hvor mange brukbare vertsadresser har et /${n}-nett?`,
+        svar: verter,
+        enhet: 'adresser',
+        eksakt: true,
+        losning: `Bit til verter: 32 − ${n} = ${32 - n}\n2^${32 - n} = ${2 ** (32 - n)} adresser\nMinus nettverks- og broadcastadresse: ${2 ** (32 - n)} − 2 = ${verter}`,
+      }
+    },
+  },
 ]
 
-/** Godtar svar innenfor ±2 % (eller ±0,01 for små tall). */
-export function erRiktig(gitt: number, fasit: number): boolean {
+/** Godtar svar innenfor ±2 % (eller ±0,01 for små tall), eller kun eksakt svar. */
+export function erRiktig(gitt: number, fasit: number, eksakt = false): boolean {
+  if (eksakt) return gitt === fasit
   const tol = Math.max(Math.abs(fasit) * 0.02, 0.01)
   return Math.abs(gitt - fasit) <= tol
 }

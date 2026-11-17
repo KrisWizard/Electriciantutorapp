@@ -85,4 +85,33 @@ export const CARDS: Card[] = [
   { id: 'k-tverrsnitt', topic: 'materiell', front: 'Vanlige standardtverrsnitt (mm²)', back: '1,5 – 2,5 – 4 – 6 – 10 – 16 – 25 – 35 …' },
   { id: 'k-pen', topic: 'materiell', front: 'Hva er en PEN-leder?', back: 'En leder som både er nøytralleder (N) og beskyttelsesleder (PE). Den finnes i TN-C-delen av et anlegg.' },
   { id: 'k-strømføring', topic: 'materiell', front: 'Hva påvirker strømføringsevnen (I_Z) til en kabel?', back: 'Tverrsnitt, ledermateriale, isolasjonstype, forlegningsmåte, omgivelsestemperatur og hvor mange kabler som ligger samlet.', kilde: 'NEK 400-5-52' },
+
+  // ── NEK 400 (flere) ───────────────────────────────────────────────────
+  { id: 'n-utkobling-tn', topic: 'nek400', front: 'Maks utkoblingstid i TN-system, 230 V, for kurser inntil 32 A', back: '0,4 s', kilde: 'NEK 400-4-41, tabell 41.1' },
+  { id: 'n-utkobling-tt', topic: 'nek400', front: 'Maks utkoblingstid i TT-system, 230 V, for kurser inntil 32 A', back: '0,2 s', kilde: 'NEK 400-4-41, tabell 41.1' },
+  { id: 'n-min-tverrsnitt', topic: 'nek400', front: 'Minste tverrsnitt for kobberledere i faste kraft- og lyskurser', back: '1,5 mm²', kilde: 'NEK 400-5-52' },
+  { id: 'n-overspenning', topic: 'nek400', front: 'Hvilken del av NEK 400 handler om beskyttelse mot overspenninger (f.eks. lynoverspenning)?', back: 'NEK 400-4-44, avsnitt 443', kilde: 'NEK 400-4-443' },
+  { id: 'n-deler', topic: 'nek400', front: 'Hvordan er NEK 400 bygd opp?', back: 'Del 1: Omfang og grunnleggende prinsipper\nDel 2: Definisjoner\nDel 3: Generelle karakteristikker\nDel 4: Beskyttelse for å oppnå sikkerhet\nDel 5: Valg og installasjon av utstyr\nDel 6: Verifikasjon (kontroll)\nDel 7: Spesielle installasjoner\nDel 8: Bolig m.m. (8-823) og energieffektivitet (8-1)' },
+  { id: 'n-risiko', topic: 'nek400', front: 'Hva må gjøres før et nytt anlegg prosjekteres og bygges?', back: 'En risikovurdering, slik at anlegget får et sikkerhetsnivå som passer bruken og omgivelsene.', kilde: 'FEL' },
+
+  // ── Ekom og nettverk ──────────────────────────────────────────────────
+  { id: 'e-rj45', topic: 'ekom', front: 'Hvor mange ledere og par har en vanlig nettverkskabel med RJ45-kontakt?', back: '8 ledere i 4 tvinnede par.' },
+  { id: 'e-t568b', topic: 'ekom', front: 'Fargerekkefølge T568B (pinne 1–8)', back: '1 hvit/oransje\n2 oransje\n3 hvit/grønn\n4 blå\n5 hvit/blå\n6 grønn\n7 hvit/brun\n8 brun', kilde: 'TIA-568' },
+  { id: 'e-t568a', topic: 'ekom', front: 'Fargerekkefølge T568A (pinne 1–8)', back: '1 hvit/grønn\n2 grønn\n3 hvit/oransje\n4 blå\n5 hvit/blå\n6 oransje\n7 hvit/brun\n8 brun\n\nSom T568B, men oransje og grønt par har byttet plass.', kilde: 'TIA-568' },
+  { id: 'e-rett-kryss', topic: 'ekom', front: 'Rett kabel vs. krysset kabel', back: 'Rett kabel: samme standard i begge ender (f.eks. B–B).\nKrysset kabel: T568A i den ene enden og T568B i den andre.' },
+  { id: 'e-tvinning', topic: 'ekom', front: 'Hvorfor er lederparene i en nettverkskabel tvinnet?', back: 'For å redusere elektromagnetisk støy og krysstale mellom parene.' },
+  { id: 'e-skjerm', topic: 'ekom', front: 'Hva betyr U/UTP, F/UTP og S/FTP?', back: 'Før skråstreken: skjerm rundt hele kabelen. Etter: skjerm rundt hvert par.\n\nU/UTP: ingen skjerm\nF/UTP: folie rundt hele kabelen\nS/FTP: flettet skjerm rundt kabelen + folie rundt hvert par' },
+  { id: 'e-100m', topic: 'ekom', front: 'Maks lengde på en kobberkanal for Ethernet (tvunnet par)', back: '100 m totalt: inntil 90 m fast kabel (permanent link) + inntil 10 m patchkabler.' },
+  { id: 'e-cat6', topic: 'ekom', front: 'Cat 6 vs. Cat 6A', back: 'Cat 6: inntil 250 MHz. 10 Gbit/s bare på kortere avstander.\nCat 6A: inntil 500 MHz. 10 Gbit/s på hele 100 m.' },
+  { id: 'e-fiber-typer', topic: 'ekom', front: 'Singlemodus- vs. multimodusfiber', back: 'Singlemodus (OS1/OS2): ca. 9 µm kjerne, for lange avstander.\nMultimodus (OM1–OM5): 50 eller 62,5 µm kjerne, for kortere avstander, f.eks. i bygg.' },
+  { id: 'e-fiber-fordeler', topic: 'ekom', front: 'Fordeler med fiber framfor kobber', back: 'Påvirkes ikke av elektromagnetisk støy, gir galvanisk skille, har lang rekkevidde og høy båndbredde.' },
+  { id: 'e-fiber-kontakter', topic: 'ekom', front: 'To vanlige fiberkontakter', back: 'LC (liten, vanlig i switcher) og SC (større, firkantet).' },
+  { id: 'e-poe', topic: 'ekom', front: 'Hva er PoE?', back: 'Power over Ethernet: strøm og data i samme nettverkskabel, f.eks. til IP-kameraer, aksesspunkter og IP-telefoner.\n\n802.3af: inntil 15,4 W\n802.3at: inntil 30 W\n802.3bt: inntil 60/90 W\n(effekt levert fra switchen)' },
+  { id: 'e-koaks', topic: 'ekom', front: 'Karakteristisk impedans for koaksialkabel til TV/antenne', back: '75 Ω' },
+  { id: 'e-switch-router', topic: 'ekom', front: 'Forskjellen på en switch og en router', back: 'Switch: kobler sammen enheter i samme lokale nett, ut fra MAC-adresser (lag 2).\nRouter: sender trafikk mellom ulike nett, ut fra IP-adresser (lag 3).' },
+  { id: 'e-ipv4', topic: 'ekom', front: 'Hvor mange bit er en IPv4-adresse og en MAC-adresse?', back: 'IPv4: 32 bit (f.eks. 192.168.1.10)\nMAC: 48 bit (f.eks. 00:1A:2B:3C:4D:5E)' },
+  { id: 'e-subnett', topic: 'ekom', front: 'Hvor mange brukbare vertsadresser har et /24-nett (255.255.255.0)?', back: '254\n\n2⁸ = 256 adresser, minus nettverksadressen og broadcastadressen.' },
+  { id: 'e-db', topic: 'ekom', front: 'Hva betyr +3 dB og −3 dB?', back: '+3 dB ≈ dobbel effekt\n−3 dB ≈ halv effekt\n+10 dB = 10 ganger effekten' },
+  { id: 'e-nkom', topic: 'ekom', front: 'Hvem er tilsynsmyndighet for elektronisk kommunikasjon (ekom) i Norge?', back: 'Nkom – Nasjonal kommunikasjonsmyndighet' },
+  { id: 'e-nek700', topic: 'ekom', front: 'Hvilken norm gjelder for installasjon av ekomnett i bygninger?', back: 'NEK 700', kilde: 'Sjekk gjeldende utgave' },
 ]

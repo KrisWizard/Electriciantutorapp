@@ -6,6 +6,7 @@ export type TopicId =
   | 'sikkerhet'
   | 'maling'
   | 'materiell'
+  | 'ekom'
 
 export interface Topic {
   id: TopicId
@@ -41,4 +42,6 @@ export interface CalcProblem {
   enhet: string
   /** Utregning som vises etter svar. */
   losning: string
+  /** Krever eksakt svar (heltall) i stedet for ±2 %. */
+  eksakt?: boolean
 }
