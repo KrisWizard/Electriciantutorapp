@@ -3,6 +3,9 @@ import type { Card } from './types'
 /**
  * Startsett med flashcards.
  *
+ * `usikker: true` markerer kort som avhenger av utgave/nasjonale krav, og som
+ * appen viser med «Sjekk mot boka».
+ *
  * VIKTIG: Innholdet er et utkast og må kvalitetssikres mot gjeldende NEK 400,
  * forskrifter og læreplanen før man stoler på det. Endre gjerne tekst, men
  * behold `id` uendret – fremgangen lagres per id.
@@ -44,16 +47,16 @@ export const CARDS: Card[] = [
   { id: 'n-elv', topic: 'nek400', front: 'Hva er ELV (ekstra lav spenning)?', back: 'Inntil 50 V AC eller 120 V rippelfri DC.' },
   { id: 'n-selv-pelv', topic: 'nek400', front: 'Forskjellen på SELV og PELV', back: 'Begge er ekstra lav spenning fra en sikker kilde.\n\nSELV: ingen forbindelse til jord.\nPELV: kretsen kan være jordet.' },
   { id: 'n-berøring', topic: 'nek400', front: 'Konvensjonell grense for berøringsspenning (U_L) under normale forhold', back: '50 V AC' },
-  { id: 'n-stikk-rcd', topic: 'nek400', front: 'Hvilke stikkontaktkurser krever jordfeilbryter ≤ 30 mA som tilleggsbeskyttelse?', back: 'Stikkontakter med merkestrøm inntil 32 A for generell bruk.', kilde: 'NEK 400-4-41, 411.3.3' },
+  { id: 'n-stikk-rcd', topic: 'nek400', front: 'Hvilke stikkontaktkurser krever jordfeilbryter ≤ 30 mA som tilleggsbeskyttelse?', back: 'Stikkontakter med merkestrøm inntil 32 A for generell bruk.', kilde: 'NEK 400-4-41, 411.3.3', usikker: true },
   { id: 'n-bad-del', topic: 'nek400', front: 'Hvilken del av NEK 400 gjelder rom med badekar eller dusj?', back: 'NEK 400-7-701' },
   { id: 'n-bolig-del', topic: 'nek400', front: 'Hvilken del av NEK 400 gjelder boliginstallasjoner?', back: 'NEK 400-8-823' },
   { id: 'n-sone0', topic: 'nek400', front: 'Bad: hva er sone 0?', back: 'Innsiden av badekaret eller dusjkaret.', kilde: 'NEK 400-7-701' },
   { id: 'n-sone1', topic: 'nek400', front: 'Bad: hva er sone 1?', back: 'Over sone 0, opp til 2,25 m over gulvet.', kilde: 'NEK 400-7-701' },
-  { id: 'n-ip-bad', topic: 'nek400', front: 'Minste IP-grad for utstyr i sone 0 og sone 1 på bad', back: 'Sone 0: IPX7\nSone 1: IPX4 (IPX5 der det kan brukes vannstråle til rengjøring)', kilde: 'NEK 400-7-701' },
+  { id: 'n-ip-bad', topic: 'nek400', front: 'Minste IP-grad for utstyr i sone 0 og sone 1 på bad', back: 'Sone 0: IPX7\nSone 1: IPX4 (IPX5 der det kan brukes vannstråle til rengjøring)', kilde: 'NEK 400-7-701', usikker: true },
   { id: 'n-ip', topic: 'nek400', front: 'Hva betyr de to sifrene i en IP-kode?', back: '1. siffer: beskyttelse mot faste gjenstander og støv (0–6)\n2. siffer: beskyttelse mot vann (0–8)\n\nX = ikke angitt' },
   { id: 'n-ipx4', topic: 'nek400', front: 'IPX4, IPX5 og IPX7', back: 'IPX4: vannsprut fra alle retninger\nIPX5: vannstråle\nIPX7: midlertidig neddykking' },
   { id: 'n-ip2x', topic: 'nek400', front: 'Hva betyr IP2X?', back: 'Beskyttet mot faste gjenstander ≥ 12,5 mm, dvs. «fingersikker».' },
-  { id: 'n-spfall', topic: 'nek400', front: 'Anbefalt maks spenningsfall fra inntaket til utstyret', back: '4 % (anbefaling).', kilde: 'NEK 400-5-52 – sjekk gjeldende utgave' },
+  { id: 'n-spfall', topic: 'nek400', front: 'Anbefalt maks spenningsfall fra inntaket til utstyret', back: '4 % (anbefaling).', kilde: 'NEK 400-5-52 – sjekk gjeldende utgave', usikker: true },
 
   // ── Forskrifter ───────────────────────────────────────────────────────
   { id: 'f-fel', topic: 'forskrifter', front: 'Hva står FEL for?', back: 'Forskrift om elektriske lavspenningsanlegg' },
@@ -91,7 +94,7 @@ export const CARDS: Card[] = [
   { id: 'n-utkobling-tt', topic: 'nek400', front: 'Maks utkoblingstid i TT-system, 230 V, for kurser inntil 32 A', back: '0,2 s', kilde: 'NEK 400-4-41, tabell 41.1' },
   { id: 'n-min-tverrsnitt', topic: 'nek400', front: 'Minste tverrsnitt for kobberledere i faste kraft- og lyskurser', back: '1,5 mm²', kilde: 'NEK 400-5-52' },
   { id: 'n-overspenning', topic: 'nek400', front: 'Hvilken del av NEK 400 handler om beskyttelse mot overspenninger (f.eks. lynoverspenning)?', back: 'NEK 400-4-44, avsnitt 443', kilde: 'NEK 400-4-443' },
-  { id: 'n-deler', topic: 'nek400', front: 'Hvordan er NEK 400 bygd opp?', back: 'Del 1: Omfang og grunnleggende prinsipper\nDel 2: Definisjoner\nDel 3: Generelle karakteristikker\nDel 4: Beskyttelse for å oppnå sikkerhet\nDel 5: Valg og installasjon av utstyr\nDel 6: Verifikasjon (kontroll)\nDel 7: Spesielle installasjoner\nDel 8: Bolig m.m. (8-823) og energieffektivitet (8-1)' },
+  { id: 'n-deler', topic: 'nek400', front: 'Hvordan er NEK 400 bygd opp?', back: 'Del 1: Omfang og grunnleggende prinsipper\nDel 2: Definisjoner\nDel 3: Generelle karakteristikker\nDel 4: Beskyttelse for å oppnå sikkerhet\nDel 5: Valg og installasjon av utstyr\nDel 6: Verifikasjon (kontroll)\nDel 7: Spesielle installasjoner\nDel 8: Bolig m.m. (8-823) og energieffektivitet (8-1)', usikker: true },
   { id: 'n-risiko', topic: 'nek400', front: 'Hva må gjøres før et nytt anlegg prosjekteres og bygges?', back: 'En risikovurdering, slik at anlegget får et sikkerhetsnivå som passer bruken og omgivelsene.', kilde: 'FEL' },
 
   // ── Ekom og nettverk ──────────────────────────────────────────────────
@@ -106,12 +109,12 @@ export const CARDS: Card[] = [
   { id: 'e-fiber-typer', topic: 'ekom', front: 'Singlemodus- vs. multimodusfiber', back: 'Singlemodus (OS1/OS2): ca. 9 µm kjerne, for lange avstander.\nMultimodus (OM1–OM5): 50 eller 62,5 µm kjerne, for kortere avstander, f.eks. i bygg.' },
   { id: 'e-fiber-fordeler', topic: 'ekom', front: 'Fordeler med fiber framfor kobber', back: 'Påvirkes ikke av elektromagnetisk støy, gir galvanisk skille, har lang rekkevidde og høy båndbredde.' },
   { id: 'e-fiber-kontakter', topic: 'ekom', front: 'To vanlige fiberkontakter', back: 'LC (liten, vanlig i switcher) og SC (større, firkantet).' },
-  { id: 'e-poe', topic: 'ekom', front: 'Hva er PoE?', back: 'Power over Ethernet: strøm og data i samme nettverkskabel, f.eks. til IP-kameraer, aksesspunkter og IP-telefoner.\n\n802.3af: inntil 15,4 W\n802.3at: inntil 30 W\n802.3bt: inntil 60/90 W\n(effekt levert fra switchen)' },
+  { id: 'e-poe', topic: 'ekom', front: 'Hva er PoE?', back: 'Power over Ethernet: strøm og data i samme nettverkskabel, f.eks. til IP-kameraer, aksesspunkter og IP-telefoner.\n\n802.3af: inntil 15,4 W\n802.3at: inntil 30 W\n802.3bt: inntil 60/90 W\n(effekt levert fra switchen)', usikker: true },
   { id: 'e-koaks', topic: 'ekom', front: 'Karakteristisk impedans for koaksialkabel til TV/antenne', back: '75 Ω' },
   { id: 'e-switch-router', topic: 'ekom', front: 'Forskjellen på en switch og en router', back: 'Switch: kobler sammen enheter i samme lokale nett, ut fra MAC-adresser (lag 2).\nRouter: sender trafikk mellom ulike nett, ut fra IP-adresser (lag 3).' },
   { id: 'e-ipv4', topic: 'ekom', front: 'Hvor mange bit er en IPv4-adresse og en MAC-adresse?', back: 'IPv4: 32 bit (f.eks. 192.168.1.10)\nMAC: 48 bit (f.eks. 00:1A:2B:3C:4D:5E)' },
   { id: 'e-subnett', topic: 'ekom', front: 'Hvor mange brukbare vertsadresser har et /24-nett (255.255.255.0)?', back: '254\n\n2⁸ = 256 adresser, minus nettverksadressen og broadcastadressen.' },
   { id: 'e-db', topic: 'ekom', front: 'Hva betyr +3 dB og −3 dB?', back: '+3 dB ≈ dobbel effekt\n−3 dB ≈ halv effekt\n+10 dB = 10 ganger effekten' },
   { id: 'e-nkom', topic: 'ekom', front: 'Hvem er tilsynsmyndighet for elektronisk kommunikasjon (ekom) i Norge?', back: 'Nkom – Nasjonal kommunikasjonsmyndighet' },
-  { id: 'e-nek700', topic: 'ekom', front: 'Hvilken norm gjelder for installasjon av ekomnett i bygninger?', back: 'NEK 700', kilde: 'Sjekk gjeldende utgave' },
+  { id: 'e-nek700', topic: 'ekom', front: 'Hvilken norm gjelder for installasjon av ekomnett i bygninger?', back: 'NEK 700', kilde: 'Sjekk gjeldende utgave', usikker: true },
 ]

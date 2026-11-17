@@ -21,6 +21,8 @@ export interface Card {
   front: string
   back: string
   kilde?: string
+  /** true = kan variere med utgave av NEK 400/forskrift – vis «sjekk mot boka». */
+  usikker?: boolean
 }
 
 /** Et flervalgsspørsmål. `riktig` er indeksen til riktig alternativ. */
@@ -32,6 +34,8 @@ export interface QuizQuestion {
   riktig: number
   forklaring: string
   kilde?: string
+  /** true = kan variere med utgave av NEK 400/forskrift – vis «sjekk mot boka». */
+  usikker?: boolean
 }
 
 /** Et generert regnestykke med tallsvar. */
