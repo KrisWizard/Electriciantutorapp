@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { MeldFeil, SjekkMotBoka } from './MeldFeil'
 import { CARDS } from '../data/cards'
 import { topicById } from '../data/topics'
 import type { Card, TopicId } from '../data/types'
@@ -88,11 +89,13 @@ export function Flashcards() {
                 <hr />
                 <div className="fc-back">{kort.back}</div>
                 {kort.kilde && <div className="kilde">Kilde: {kort.kilde}</div>}
+                {kort.usikker && <SjekkMotBoka />}
               </>
             ) : (
               <div className="hint">Trykk for å vise svaret</div>
             )}
           </button>
+          {snudd && <MeldFeil id={kort.id} innhold={`Kort: ${kort.front}\nAppens svar: ${kort.back}`} />}
 
           {snudd && (
             <div className="rating">

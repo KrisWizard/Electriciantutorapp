@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { MeldFeil, SjekkMotBoka } from './MeldFeil'
 import { QUIZ } from '../data/quiz'
 import { topicById } from '../data/topics'
 import type { QuizQuestion, TopicId } from '../data/types'
@@ -157,6 +158,11 @@ export function Quiz() {
           <strong>{valgt === q.riktig ? '✅ Riktig!' : '❌ Feil'}</strong>
           <p>{q.forklaring}</p>
           {q.kilde && <div className="kilde">Kilde: {q.kilde}</div>}
+          {q.usikker && <SjekkMotBoka />}
+          <MeldFeil
+            id={q.id}
+            innhold={`Spørsmål: ${q.sporsmal}\nAppens svar: ${q.alternativer[q.riktig]}\nForklaring: ${q.forklaring}`}
+          />
           <button
             className="btn btn-primary full"
             onClick={() => {

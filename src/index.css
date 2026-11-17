@@ -459,3 +459,20 @@ h2 {
 .bar .svak {
   background: var(--bad);
 }
+
+/* Meld feil / sjekk mot boka */
+.meld-feil {
+  margin-top: 8px;
+  font-size: 0.88rem;
+}
+.meld-feil .lenke {
+  padding: 6px 0;
+}
+.sjekk-boka {
+  margin-top: 12px;
+  padding: 8px 10px;
+  border-radius: 10px;
+  background: color-mix(in srgb, var(--warn) 14%, transparent);
+  font-size: 0.82rem;
+  text-align: left;
+}

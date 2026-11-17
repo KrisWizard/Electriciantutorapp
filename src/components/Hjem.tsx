@@ -48,7 +48,7 @@ export function Hjem({ gaTil }: { gaTil: (f: Fane) => void }) {
       </button>
 
       <p className="disclaimer">
-        Innholdet ({CARDS.length} kort) er et utkast. Sjekk alltid mot gjeldende NEK 400 og forskrifter.
+        Innholdet ({CARDS.length} kort) er et utkast. Ser du noe som ikke stemmer med boka? Trykk «🚩 Meld feil» på kortet eller spørsmålet.
       </p>
     </section>
   )

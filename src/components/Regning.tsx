@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { MeldFeil } from './MeldFeil'
 import { GENERATORS, erRiktig, fmt, type Generator } from '../data/generators'
 import type { CalcProblem } from '../data/types'
 import { registrerSvar, update } from '../store'
@@ -89,6 +90,10 @@ export function Regning() {
             {resultat ? '✅ Riktig!' : `❌ Fasit: ${fmt(oppgave.svar)} ${oppgave.enhet}`}
           </strong>
           <pre className="losning">{oppgave.losning}</pre>
+          <MeldFeil
+            id={`regning: ${oppgave.tittel}`}
+            innhold={`Oppgave: ${oppgave.tekst}\nAppens fasit: ${fmt(oppgave.svar)} ${oppgave.enhet}\nUtregning:\n${oppgave.losning}`}
+          />
           <button className="btn btn-primary full" onClick={() => ny(gen)}>
             Neste oppgave
           </button>
