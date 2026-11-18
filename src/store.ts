@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+import { dagerPaRad, settKvittertMilepel } from './backup'
 import type { TopicId } from './data/types'
 
 /** Tilstand for ett kort i spaced repetition (forenklet SM-2). */
@@ -28,6 +29,7 @@ export interface AppState {
   nyeIdag: { dato: string; antall: number }
 }
 
+/** Ikke bytt nøkkel – eksisterende brukere har fremgangen sin her. Sikkerhetskopi bruker en egen fil, ikke denne nøkkelen. */
 const KEY = 'elektrikerstudie.v1'
 export const NYE_PER_DAG = 15
 const DAG = 24 * 60 * 60 * 1000
@@ -124,21 +126,18 @@ export function useAppState(): AppState {
 }
 
 /** Antall dager på rad det er øvd (i dag eller i går teller som aktiv). */
-export function streak(dager: string[]): number {
-  const set = new Set(dager)
-  const d = new Date()
-  const key = (x: Date) =>
-    `${x.getFullYear()}-${String(x.getMonth() + 1).padStart(2, '0')}-${String(x.getDate()).padStart(2, '0')}`
-  if (!set.has(key(d))) d.setDate(d.getDate() - 1)
-  let n = 0
-  while (set.has(key(d))) {
-    n++
-    d.setDate(d.getDate() - 1)
-  }
-  return n
+export function streak(dager: string[], now = new Date()): number {
+  return dagerPaRad(dager, now)
+}
+
+/** Erstatter hele fremgangen etter at en sikkerhetskopi er validert. */
+export function erstattFremgang(neste: AppState) {
+  const kopi = JSON.parse(JSON.stringify(neste)) as AppState
+  update(() => kopi)
 }
 
 export function nullstill() {
+  settKvittertMilepel(0)
   update(() => tom())
 }
 
