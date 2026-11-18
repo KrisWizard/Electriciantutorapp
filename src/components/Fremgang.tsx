@@ -1,6 +1,7 @@
 import { CARDS } from '../data/cards'
 import { TOPICS } from '../data/topics'
 import { nullstill, streak, useAppState } from '../store'
+import { Sikkerhetskopi } from './Sikkerhetskopi'
 
 export function Fremgang() {
   const s = useAppState()
@@ -31,6 +32,8 @@ export function Fremgang() {
           <span>kort som sitter</span>
         </div>
       </div>
+
+      <Sikkerhetskopi />
 
       <h2>Treffsikkerhet per tema</h2>
       <p className="muted">Fra quiz og regneøving.</p>

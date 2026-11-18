@@ -1,4 +1,6 @@
+import { useState } from 'react'
 import { CARDS } from '../data/cards'
+import { lesKvittertMilepel, nesteMilepel, settKvittertMilepel } from '../backup'
 import { streak, useAppState } from '../store'
 import { koKort } from './Flashcards'
 import type { Fane } from '../App'
@@ -8,6 +10,14 @@ export function Hjem({ gaTil }: { gaTil: (f: Fane) => void }) {
   const igjen = koKort(s, 'alle').length
   const dager = streak(s.dager)
   const feil = Object.keys(s.feil).length
+  const [kvittert, setKvittert] = useState(lesKvittertMilepel)
+  const milepel = nesteMilepel(dager, kvittert)
+
+  function ikkeNa() {
+    if (milepel == null) return
+    settKvittertMilepel(milepel)
+    setKvittert(lesKvittertMilepel())
+  }
 
   return (
     <section>
@@ -24,6 +34,22 @@ export function Hjem({ gaTil }: { gaTil: (f: Fane) => void }) {
           <span>kort i dag</span>
         </div>
       </div>
+
+      {milepel != null && (
+        <div className="paminnelse">
+          <p>
+            <b>{milepel} dager på rad.</b> Ta en sikkerhetskopi, så har du fremgangen hvis du bytter telefon.
+          </p>
+          <div className="paminnelse-knapper">
+            <button type="button" className="btn btn-primary" onClick={() => gaTil('fremgang')}>
+              Ta sikkerhetskopi
+            </button>
+            <button type="button" className="lenke" onClick={ikkeNa}>
+              Ikke nå
+            </button>
+          </div>
+        </div>
+      )}
 
       <button className="kort-knapp primar" onClick={() => gaTil('kort')}>
         <span className="ikon">🃏</span>

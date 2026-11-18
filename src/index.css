@@ -476,3 +476,127 @@ h2 {
   font-size: 0.82rem;
   text-align: left;
 }
+
+h3 {
+  font-size: 1.02rem;
+  margin: 16px 0 6px;
+}
+
+label.btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.fil-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.kopi-tekst {
+  width: 100%;
+  min-height: 140px;
+  max-height: 240px;
+  margin-top: 10px;
+  padding: 12px;
+  border-radius: var(--radius);
+  border: 2px solid var(--border);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.4;
+  resize: vertical;
+}
+
+.kopi-tekst:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.merknad {
+  margin: 10px 0 0;
+  padding: 10px 12px;
+  border-radius: 10px;
+  background: var(--ok-bg);
+  font-size: 0.92rem;
+}
+
+.merknad.feil {
+  background: var(--bad-bg);
+}
+
+.kopi-tabell {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 12px 0;
+  font-size: 0.95rem;
+}
+
+.kopi-tabell th,
+.kopi-tabell td {
+  padding: 7px 0;
+  border-bottom: 1px solid var(--border);
+  vertical-align: baseline;
+}
+
+.kopi-tabell th {
+  font-weight: 600;
+  text-align: left;
+}
+
+.kopi-tabell thead th {
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+
+.kopi-tabell td,
+.kopi-tabell thead th:not(:first-child) {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.paminnelse {
+  margin-top: 4px;
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  border: 1px solid var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+}
+
+.paminnelse p {
+  margin: 0 0 12px;
+}
+
+.paminnelse-knapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px 14px;
+}
+
+.paminnelse-knapper .btn {
+  margin-top: 0;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

@@ -8,6 +8,7 @@ En studieapp for mobil som hjelper deg å øve til fagbrev som elektriker (NEK 4
 - **Quiz.** 10 tilfeldige flervalgsspørsmål med forklaring etter hvert svar. Spørsmål du svarer feil på havner i en **feilliste** du kan øve på separat.
 - **Regneøving.** Ohms lov, effekt (enfase og trefase), serie/parallell, lederresistans, spenningsfall og energikostnad. Nye tall hver gang, og svar innenfor ±2 % godtas.
 - **Fremgang.** Dager på rad, antall kort sett og treffsikkerhet per tema.
+- **Sikkerhetskopi.** Last ned, del eller kopier all fremgang, og hent den inn igjen på en ny telefon.
 - **Virker offline og kan installeres på mobilen** (PWA). All fremgang lagres lokalt på telefonen.
 
 ## ⚠️ Om innholdet
@@ -32,8 +33,19 @@ Gi hvert nytt kort eller spørsmål en unik `id`, og ikke endre `id` på eksiste
 ```bash
 npm install
 npm run dev       # utviklingsserver
+npm test          # sikkerhetskopi: rundtur og ugyldig fil
 npm run build     # produksjonsbygg i dist/
 ```
+
+## Sikkerhetskopi
+
+Fremgangen ligger bare i nettleseren på telefonen. Under **Fremgang** kan du ta en kopi og hente den inn igjen:
+
+- **Del fil** — anbefalt på iPhone, særlig hvis appen ligger på Hjem-skjermen. Velg *Lagre i Filer*.
+- **Last ned fil** — Android og PC.
+- **Kopier tekst** — lim inn i Notater. Virker også når nedlasting ikke gjør det.
+
+For å hente den inn: **Importer fra fil** eller **Lim inn tekst**, se over tallene, og bekreft. Ugyldig tekst endrer ingenting. Kopien erstatter fremgangen som ligger på telefonen.
 
 ## Publisere (GitHub Pages)
 
